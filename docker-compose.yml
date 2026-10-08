@@ -1,0 +1,27 @@
+name: web-monitoring-system
+
+services:
+  target:
+    build: .
+    command: ["node", "src/server.js"]
+    expose:
+      - "8080"
+
+  monitor:
+    build: .
+    command:
+      - node
+      - src/cli.js
+      - "http://target:8080/ok"
+      - "http://target:8080/missing"
+      - "http://target:8080/error"
+      - "http://target:8080/slow?ms=3000"
+      - "http://127.0.0.1:9/"
+    environment:
+      TIMEOUT_MS: "1000"
+    depends_on:
+      - target
+
+  test:
+    build: .
+    command: ["npm", "test"]

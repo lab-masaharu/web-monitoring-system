@@ -1,0 +1,14 @@
+{
+  "name": "web-monitoring-system",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "check": "node src/cli.js",
+    "test": "node --test test/monitor.test.js"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

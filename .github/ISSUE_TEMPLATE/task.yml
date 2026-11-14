@@ -1,0 +1,46 @@
+name: 作業依頼
+description: AI または人間に依頼する開発作業
+title: "[task] "
+labels: ["task"]
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: 目的
+      description: 何を実現したいか（1〜3 行）
+    validations:
+      required: true
+  - type: textarea
+    id: background
+    attributes:
+      label: 背景
+      description: なぜ必要か。関連する Issue、PR、記録があればリンク
+    validations:
+      required: false
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: 完了条件
+      description: 確認できる形で箇条書き
+      placeholder: |
+        - [ ] 〜のとき〜になる
+        - [ ] npm test がすべて成功する
+    validations:
+      required: true
+  - type: textarea
+    id: out-of-scope
+    attributes:
+      label: 範囲外
+      description: 今回やらないこと
+    validations:
+      required: false
+  - type: dropdown
+    id: risk
+    attributes:
+      label: 影響範囲
+      options:
+        - 小（ドキュメント、テスト、局所的な修正）
+        - 中（既存の動作が変わる）
+        - 大（構成、データ、外部連携が変わる）
+    validations:
+      required: true

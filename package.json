@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node src/server.js",
     "check": "node src/cli.js",
-    "test": "node --test test/monitor.test.js"
+    "test": "node --test test/monitor.test.js test/cli.test.js"
   },
   "engines": {
     "node": ">=22"
